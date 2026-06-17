@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary:   #7C3AED;
+    --color-secondary: #06B6D4;
+    --color-accent:    #F59E0B;
+    --color-success:   #10B981;
+    --color-warning:   #F59E0B;
+    --color-danger:    #EF4444;
+
+    --color-bg:        #0A0A0A;
+    --color-surface:   #111827;
+    --color-border:    #1F2937;
+    --color-muted:     #374151;
+
+    --color-text-primary:   #F9FAFB;
+    --color-text-secondary: #9CA3AF;
+    --color-text-muted:     #6B7280;
+  }
+
+  body {
+    @apply bg-[#0A0A0A] text-gray-100 font-sans min-h-screen overflow-x-hidden antialiased selection:bg-primary/30;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism primitives */
+  .glass-card {
+    @apply bg-surface/30 backdrop-blur-lg border border-border/40 rounded-xl transition-all duration-300;
+  }
+  
+  .glass-panel {
+    @apply bg-surface/20 backdrop-blur-xl border border-border/30 rounded-2xl;
+  }
+  
+  .glass-input {
+    @apply bg-surface/30 border border-border/60 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/80 transition-all duration-200 placeholder:text-gray-500;
+  }
+
+  /* Shimmer gradient orbs */
+  .bg-orb {
+    @apply absolute rounded-full blur-[140px] opacity-20 pointer-events-none;
+  }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}

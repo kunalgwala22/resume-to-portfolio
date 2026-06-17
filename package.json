@@ -1,0 +1,24 @@
+{
+  "name": "portfolioverse-ai",
+  "version": "1.0.0",
+  "description": "PortfolioVerse AI — Production-Grade Resume to Portfolio Generator",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "db:migrate": "npm run db:migrate --workspace=backend",
+    "db:seed": "npm run db:seed --workspace=backend"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.0",
+    "typescript": "^5.4.5"
+  }
+}

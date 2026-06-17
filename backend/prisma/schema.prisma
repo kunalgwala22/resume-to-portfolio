@@ -1,0 +1,265 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  username       String    @unique
+  passwordHash   String
+  fullName       String?
+  avatarUrl      String?
+  bio            String?
+  organizationId String?   // nullable: future team support
+  isEmailVerified Boolean  @default(false)
+  refreshToken   String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  resumes        Resume[]
+  portfolio      Portfolio?
+  analytics      PortfolioView[]
+  contacts       ContactMessage[]
+  aiReports      AIReport[]
+
+  @@index([email])
+  @@index([username])
+  @@map("users")
+}
+
+model Resume {
+  id           String    @id @default(cuid())
+  userId       String
+  originalName String
+  fileUrl      String    // Cloudinary URL
+  fileType     String    // "pdf" | "docx"
+  parseStatus  ParseStatus @default(PENDING)
+  parsedData   Json?     // Structured AI-extracted JSON
+  isActive     Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+
+  user         User      @relation(fields: [userId], references: [id])
+  skills       Skill[]
+  experiences  Experience[]
+  educations   Education[]
+  projects     Project[]
+  certifications Certification[]
+  socialLinks  SocialLink[]
+
+  @@index([userId])
+  @@index([userId, isActive])
+  @@map("resumes")
+}
+
+enum ParseStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Portfolio {
+  id           String    @id @default(cuid())
+  userId       String    @unique
+  templateId   String
+  title        String
+  headline     String?
+  summary      String?
+  isPublished  Boolean   @default(false)
+  customDomain String?   @unique
+  seoTitle     String?
+  seoDescription String?
+  themeColor   String    @default("#7C3AED")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+
+  user         User      @relation(fields: [userId], references: [id])
+  template     Template  @relation(fields: [templateId], references: [id])
+  views        PortfolioView[]
+
+  @@map("portfolios")
+}
+
+model Template {
+  id           String    @id @default(cuid())
+  slug         String    @unique
+  name         String
+  description  String
+  previewUrl   String
+  tags         String[]
+  category     String
+  isPremium    Boolean   @default(false)
+  themeColors  String[]
+  features     String[]
+  sortOrder    Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  portfolios   Portfolio[]
+
+  @@map("templates")
+}
+
+model Skill {
+  id       String  @id @default(cuid())
+  resumeId String
+  name     String
+  level    SkillLevel @default(INTERMEDIATE)
+  category String?
+
+  resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("skills")
+}
+
+enum SkillLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model Experience {
+  id           String    @id @default(cuid())
+  resumeId     String
+  company      String
+  role         String
+  location     String?
+  startDate    DateTime
+  endDate      DateTime?
+  isCurrent    Boolean   @default(false)
+  description  String?
+  achievements String[]
+
+  resume       Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("experiences")
+}
+
+model Education {
+  id           String    @id @default(cuid())
+  resumeId     String
+  institution  String
+  degree       String
+  field        String?
+  startDate    DateTime
+  endDate      DateTime?
+  grade        String?
+  description  String?
+
+  resume       Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("educations")
+}
+
+model Project {
+  id           String    @id @default(cuid())
+  resumeId     String
+  name         String
+  description  String?
+  techStack    String[]
+  liveUrl      String?
+  repoUrl      String?
+  imageUrl     String?
+  isFeatured   Boolean   @default(false)
+  sortOrder    Int       @default(0)
+
+  resume       Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("projects")
+}
+
+model Certification {
+  id           String    @id @default(cuid())
+  resumeId     String
+  name         String
+  issuer       String
+  issueDate    DateTime?
+  expiryDate   DateTime?
+  credentialId String?
+  credentialUrl String?
+
+  resume       Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("certifications")
+}
+
+model SocialLink {
+  id       String @id @default(cuid())
+  resumeId String
+  platform String  // "github" | "linkedin" | "twitter" | "website" etc.
+  url      String
+
+  resume   Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+
+  @@index([resumeId])
+  @@map("social_links")
+}
+
+model PortfolioView {
+  id          String   @id @default(cuid())
+  userId      String
+  ip          String
+  country     String?
+  city        String?
+  device      String?  // "mobile" | "desktop" | "tablet"
+  browser     String?
+  referer     String?
+  timeSpent   Int?     // seconds
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
+  portfolioId String?  // Optional relation link
+  portfolio   Portfolio? @relation(fields: [portfolioId], references: [id])
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([createdAt])
+  @@map("portfolio_views")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  senderName  String
+  senderEmail String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@map("contact_messages")
+}
+
+model AIReport {
+  id           String   @id @default(cuid())
+  userId       String
+  prompt       String
+  response     String
+  tokensUsed   Int
+  model        String
+  createdAt    DateTime @default(now())
+
+  user         User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@map("ai_reports")
+}

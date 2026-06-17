@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: portfolioverse_postgres
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio_pass
+      POSTGRES_DB: portfolioverse
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d portfolioverse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: portfolioverse_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: portfolioverse_backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://portfolio:portfolio_pass@postgres:5432/portfolioverse?schema=public"
+      REDIS_URL: "redis://redis:6379"
+      PORT: 3001
+      JWT_SECRET: "super_secret_key_used_locally_for_signing_access_tokens"
+      REFRESH_TOKEN_SECRET: "super_secret_key_used_locally_for_signing_refresh_tokens"
+      OPENAI_API_KEY: "mock"
+      CLOUDINARY_URL: "cloudinary://mock:mock@mock"
+      NODE_ENV: "production"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: portfolioverse_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
