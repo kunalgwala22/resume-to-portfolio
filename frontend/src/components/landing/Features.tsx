@@ -48,7 +48,7 @@ export const Features: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((feat, idx) => (
-            <Card key={idx} hoverable className="flex flex-col gap-4 bg-[#111827]/30 border-border/40">
+            <Card key={idx} hoverable className="flex flex-col gap-4 bg-surface/30 border-border/40">
               <div className="h-10 w-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
                 <feat.icon size={20} />
               </div>

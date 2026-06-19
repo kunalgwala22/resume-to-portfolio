@@ -41,7 +41,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
       {/* Modal Dialog container */}
       <div
         className={cn(
-          "relative w-full max-h-[90vh] flex flex-col bg-[#111827] border border-border/80 rounded-xl shadow-2xl overflow-hidden animate-slideUp z-10",
+          "relative w-full max-h-[90vh] flex flex-col bg-surface border border-border/80 rounded-xl shadow-2xl overflow-hidden animate-slideUp z-10",
           size === 'sm' && "max-w-md",
           size === 'md' && "max-w-lg",
           size === 'lg' && "max-w-2xl",

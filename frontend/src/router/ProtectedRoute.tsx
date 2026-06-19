@@ -10,7 +10,7 @@ export const ProtectedRoute: React.FC = () => {
 
   if (isLoadingUser) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0A0A0A] text-white">
+      <div className="min-h-screen flex items-center justify-center bg-dark text-gray-100">
         <div className="flex flex-col items-center gap-3">
           <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           <p className="text-gray-400 text-sm animate-pulse">Loading secure session...</p>

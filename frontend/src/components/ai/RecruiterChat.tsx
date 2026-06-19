@@ -51,14 +51,14 @@ export const RecruiterChat: React.FC<{ username: string }> = ({ username }) => {
 
       {/* Chat overlay viewport */}
       {isOpen && (
-        <div className="w-80 sm:w-96 h-[450px] bg-[#111827] border border-border/80 rounded-2xl flex flex-col justify-between overflow-hidden shadow-2xl animate-slideUp">
+        <div className="w-80 sm:w-96 h-[450px] bg-surface border border-border/80 rounded-2xl flex flex-col justify-between overflow-hidden shadow-2xl animate-slideUp">
           {/* Header */}
-          <div className="bg-[#1f2937] px-4 py-3 border-b border-border/60 flex justify-between items-center">
+          <div className="bg-border/40 px-4 py-3 border-b border-border/60 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-success animate-pulse"></div>
-              <span className="text-xs font-bold text-white uppercase tracking-wider">AI Recruiter Assistant</span>
+              <span className="text-xs font-bold text-gray-100 uppercase tracking-wider">AI Recruiter Assistant</span>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white" aria-label="Close Chat">
+            <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-100" aria-label="Close Chat">
               <X size={18} />
             </button>
           </div>
@@ -84,7 +84,7 @@ export const RecruiterChat: React.FC<{ username: string }> = ({ username }) => {
                 <div className="h-7 w-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 text-primary">
                   <Bot size={14} />
                 </div>
-                <div className="p-3 rounded-xl bg-surface text-gray-400 rounded-tl-none border border-[#1f2937] flex items-center gap-1">
+                <div className="p-3 rounded-xl bg-surface text-gray-400 rounded-tl-none border border-border flex items-center gap-1">
                   <span>Twin is typing...</span>
                 </div>
               </div>
@@ -92,14 +92,14 @@ export const RecruiterChat: React.FC<{ username: string }> = ({ username }) => {
           </div>
 
           {/* Text Input Footer */}
-          <div className="p-3 border-t border-border/60 bg-[#111827]/80 flex gap-2">
+          <div className="p-3 border-t border-border/60 bg-surface/80 flex gap-2">
             <input
               type="text"
               placeholder="Ask about their background..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              className="flex-grow bg-surface border border-border/80 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary/80"
+              className="flex-grow bg-surface border border-border/80 rounded-lg px-3 py-1.5 text-xs text-gray-100 focus:outline-none focus:border-primary/80"
               disabled={loading}
             />
             <Button size="sm" onClick={handleSend} isLoading={loading} className="px-3 min-w-0" aria-label="Send Message">

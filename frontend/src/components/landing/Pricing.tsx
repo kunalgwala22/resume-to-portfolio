@@ -48,7 +48,7 @@ export const Pricing: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {plans.map((plan, idx) => (
-            <Card key={idx} className={`bg-[#111827]/30 border-border/40 p-8 flex flex-col justify-between gap-8 ${plan.isPremium ? 'border-primary ring-2 ring-primary/10' : ''}`}>
+            <Card key={idx} className={`bg-surface/30 border-border/40 p-8 flex flex-col justify-between gap-8 ${plan.isPremium ? 'border-primary ring-2 ring-primary/10' : ''}`}>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold text-white">{plan.name}</h3>

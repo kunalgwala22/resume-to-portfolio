@@ -8,9 +8,9 @@ interface AnalyticsChartProps {
 
 export const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
   return (
-    <Card className="bg-[#111827]/30 border-border/40 p-6 flex flex-col gap-4">
+    <Card className="bg-surface/30 border-border/40 p-6 flex flex-col gap-4">
       <div>
-        <h3 className="text-sm font-bold text-white uppercase tracking-wider">Page Views Overview</h3>
+        <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">Page Views Overview</h3>
         <p className="text-[10px] text-gray-500 font-semibold">Total portfolio hits compiled over the selected timeframe</p>
       </div>
 
@@ -23,11 +23,11 @@ export const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data }) => {
                 <stop offset="95%" stopColor="#7C3AED" stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1F2937" vertical={false} />
-            <XAxis dataKey="date" stroke="#4B5563" tickLine={false} />
-            <YAxis stroke="#4B5563" tickLine={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgb(var(--color-border))" vertical={false} />
+            <XAxis dataKey="date" stroke="rgb(var(--gray-500))" tickLine={false} />
+            <YAxis stroke="rgb(var(--gray-500))" tickLine={false} />
             <Tooltip 
-              contentStyle={{ backgroundColor: '#111827', borderColor: '#1F2937', color: '#F9FAFB', borderRadius: '8px' }}
+              contentStyle={{ backgroundColor: 'rgb(var(--color-surface))', borderColor: 'rgb(var(--color-border))', color: 'rgb(var(--gray-50))', borderRadius: '8px' }}
               labelStyle={{ fontWeight: 'bold' }}
             />
             <Area type="monotone" dataKey="views" stroke="#7C3AED" strokeWidth={2} fillOpacity={1} fill="url(#colorViews)" />

@@ -37,7 +37,7 @@ export const ResumeUploadPage: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-6">
         {/* Core upload block */}
-        <Card className="bg-[#111827]/30 border-border/40 p-6 flex flex-col gap-6">
+        <Card className="bg-surface/30 border-border/40 p-6 flex flex-col gap-6">
           <div className="text-center max-w-md mx-auto">
             <h2 className="text-base font-bold text-white mb-2">Resume-to-Portfolio Generator</h2>
             <p className="text-xs text-gray-400">

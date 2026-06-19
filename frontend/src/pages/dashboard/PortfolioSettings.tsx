@@ -102,7 +102,7 @@ export const PortfolioSettings: React.FC = () => {
           {/* Main Info Columns */}
           <div className="md:col-span-2 flex flex-col gap-6">
             {/* Header info */}
-            <Card className="bg-[#111827]/20 border-border/40 p-6 flex flex-col gap-4">
+            <Card className="bg-surface/20 border-border/40 p-6 flex flex-col gap-4">
               <h2 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-border/20 pb-2">
                 <Layout size={14} className="text-primary" />
                 <span>Page Layout Content</span>
@@ -159,7 +159,7 @@ export const PortfolioSettings: React.FC = () => {
             </Card>
 
             {/* SEO Optimization */}
-            <Card className="bg-[#111827]/20 border-border/40 p-6 flex flex-col gap-4">
+            <Card className="bg-surface/20 border-border/40 p-6 flex flex-col gap-4">
               <h2 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-border/20 pb-2">
                 <Search size={14} className="text-secondary" />
                 <span>SEO & Discovery Tags</span>
@@ -187,7 +187,7 @@ export const PortfolioSettings: React.FC = () => {
           {/* Right sidebar style cards */}
           <div className="flex flex-col gap-6">
             {/* Custom Domain */}
-            <Card className="bg-[#111827]/20 border-border/40 p-5 flex flex-col gap-3">
+            <Card className="bg-surface/20 border-border/40 p-5 flex flex-col gap-3">
               <h2 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Globe size={13} className="text-emerald-400" />
                 <span>Domain Options</span>
@@ -204,7 +204,7 @@ export const PortfolioSettings: React.FC = () => {
             </Card>
 
             {/* Design Tuning */}
-            <Card className="bg-[#111827]/20 border-border/40 p-5 flex flex-col gap-4">
+            <Card className="bg-surface/20 border-border/40 p-5 flex flex-col gap-4">
               <h2 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Sliders size={13} className="text-amber-400" />
                 <span>Theme Colors</span>

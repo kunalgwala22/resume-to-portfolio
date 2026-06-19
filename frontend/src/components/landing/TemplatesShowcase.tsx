@@ -21,10 +21,10 @@ export const TemplatesShowcase: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {showcaseTemplates.map((tmpl) => (
-          <Card key={tmpl.id} className="flex flex-col gap-4 bg-[#111827]/30 border-border/40 p-5 overflow-hidden justify-between">
+          <Card key={tmpl.id} className="flex flex-col gap-4 bg-surface/30 border-border/40 p-5 overflow-hidden justify-between">
             <div className="flex flex-col gap-3">
               {/* Mock Preview container */}
-              <div className="h-44 bg-[#0A0A0A] rounded-lg border border-border/40 flex items-center justify-center relative group overflow-hidden">
+              <div className="h-44 bg-dark rounded-lg border border-border/40 flex items-center justify-center relative group overflow-hidden">
                 <span className="text-[#06b6d4] font-mono text-[10px]">&lt; {tmpl.name} Preview /&gt;</span>
                 <div className="absolute inset-0 bg-[#000000]/65 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                   <Link to="/register">

@@ -64,7 +64,7 @@ export const PublicPortfolioPage: React.FC = () => {
 
   if (isLoadingPublic) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0A0A0A] text-white">
+      <div className="min-h-screen flex items-center justify-center bg-dark text-gray-100">
         <div className="flex flex-col items-center gap-3">
           <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           <p className="text-gray-400 text-sm animate-pulse">Retrieving candidate digital twin...</p>
@@ -76,12 +76,12 @@ export const PublicPortfolioPage: React.FC = () => {
   // Handle case where username doesn't exist or errors out
   if (publicError || !publicPortfolio) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0A0A0A] text-white p-6 text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-dark text-gray-100 p-6 text-center">
         <div className="max-w-md flex flex-col items-center gap-4">
           <div className="h-16 w-16 rounded-full bg-danger/10 border border-danger/20 flex items-center justify-center text-danger">
             <AlertTriangle size={32} />
           </div>
-          <h1 className="text-2xl font-extrabold font-display text-white">Portfolio Not Found</h1>
+          <h1 className="text-2xl font-extrabold font-display text-gray-100">Portfolio Not Found</h1>
           <p className="text-sm text-gray-400">
             The requested candidate profile does not exist or has been deleted.
           </p>
@@ -100,12 +100,12 @@ export const PublicPortfolioPage: React.FC = () => {
   const isOwner = loggedInUser?.username === username;
   if (!publicPortfolio.isPublished && !isOwner) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0A0A0A] text-white p-6 text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-dark text-gray-100 p-6 text-center">
         <div className="max-w-md flex flex-col items-center gap-4">
           <div className="h-16 w-16 rounded-full bg-warning/10 border border-warning/20 flex items-center justify-center text-warning">
             <EyeOff size={32} />
           </div>
-          <h1 className="text-2xl font-extrabold font-display text-white">Portfolio Private</h1>
+          <h1 className="text-2xl font-extrabold font-display text-gray-100">Portfolio Private</h1>
           <p className="text-sm text-gray-400">
             This candidate portfolio is currently saved as a draft and is private.
           </p>
@@ -129,10 +129,10 @@ export const PublicPortfolioPage: React.FC = () => {
   const isLightTemplate = ['tmpl-clean-starter', 'clean-starter', 'tmpl-ink-corridor', 'ink-corridor'].includes(templateId);
   const wrapperBg = isLightTemplate 
     ? (templateId.includes('corridor') ? 'bg-[#FAF6EE]' : 'bg-[#FFFFFF]') 
-    : 'bg-[#0A0A0A]';
+    : 'bg-dark';
 
   return (
-    <div className={`min-h-screen relative flex flex-col ${wrapperBg} text-white`}>
+    <div className={`min-h-screen relative flex flex-col ${wrapperBg} text-gray-100`}>
       {/* Informative top bar if viewing as draft owner */}
       {!publicPortfolio.isPublished && isOwner && (
         <div className="bg-warning text-dark font-bold text-center py-2 px-4 text-xs flex items-center justify-center gap-2 sticky top-0 z-50">

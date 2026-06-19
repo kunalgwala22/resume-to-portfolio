@@ -60,7 +60,7 @@ export const ResumeEditorPage: React.FC = () => {
         </div>
       </div>
 
-      <Card className="bg-[#111827]/10 border-border/40 p-6">
+      <Card className="bg-surface/10 border-border/40 p-6">
         <ResumeEditor resumeId={id} />
       </Card>
     </div>

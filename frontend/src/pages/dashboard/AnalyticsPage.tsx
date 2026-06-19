@@ -64,10 +64,10 @@ export const AnalyticsPage: React.FC = () => {
             onChange={(e) => setDays(Number(e.target.value))}
             className="bg-transparent text-white focus:outline-none cursor-pointer"
           >
-            <option value={7} className="bg-[#0A0A0A]">Past 7 Days</option>
-            <option value={14} className="bg-[#0A0A0A]">Past 14 Days</option>
-            <option value={30} className="bg-[#0A0A0A]">Past 30 Days</option>
-            <option value={90} className="bg-[#0A0A0A]">Past 90 Days</option>
+            <option value={7} className="bg-dark">Past 7 Days</option>
+            <option value={14} className="bg-dark">Past 14 Days</option>
+            <option value={30} className="bg-dark">Past 30 Days</option>
+            <option value={90} className="bg-dark">Past 90 Days</option>
           </select>
         </div>
       </div>
@@ -100,7 +100,7 @@ export const AnalyticsPage: React.FC = () => {
       {/* Primary time series chart */}
       <div className="w-full">
         {isLoadingViews ? (
-          <div className="h-64 border border-border/40 rounded-xl bg-[#111827]/10 flex items-center justify-center">
+          <div className="h-64 border border-border/40 rounded-xl bg-surface/10 flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : (
@@ -111,7 +111,7 @@ export const AnalyticsPage: React.FC = () => {
       {/* Breakdowns Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Country Demographics */}
-        <Card className="bg-[#111827]/20 border-border/40 p-5 flex flex-col gap-4">
+        <Card className="bg-surface/20 border-border/40 p-5 flex flex-col gap-4">
           <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-border/20 pb-2">
             <Globe2 size={14} className="text-primary" />
             <span>Country Demographics</span>
@@ -151,7 +151,7 @@ export const AnalyticsPage: React.FC = () => {
         </Card>
 
         {/* Device Splits */}
-        <Card className="bg-[#111827]/20 border-border/40 p-5 flex flex-col gap-4">
+        <Card className="bg-surface/20 border-border/40 p-5 flex flex-col gap-4">
           <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-border/20 pb-2">
             <Laptop size={14} className="text-secondary" />
             <span>Device Categories</span>
@@ -192,7 +192,7 @@ export const AnalyticsPage: React.FC = () => {
       </div>
 
       {/* Top Clicked Projects logs */}
-      <Card className="bg-[#111827]/20 border-border/40 p-6 flex flex-col gap-4">
+      <Card className="bg-surface/20 border-border/40 p-6 flex flex-col gap-4">
         <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-border/20 pb-2">
           <FolderGit2 size={14} className="text-emerald-400" />
           <span>Interactive Project Click Counts</span>

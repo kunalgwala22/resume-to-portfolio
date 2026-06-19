@@ -19,7 +19,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         <select
           ref={ref}
           className={cn(
-            "glass-input w-full bg-[#111827] cursor-pointer",
+            "glass-input w-full bg-surface cursor-pointer",
             error && "border-danger focus:border-danger focus:ring-danger/50 focus:ring-1",
             className
           )}

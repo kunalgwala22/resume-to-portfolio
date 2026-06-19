@@ -47,7 +47,7 @@ export const Register: React.FC = () => {
   return (
     <AuroraBackground>
       <div className="flex-grow flex items-center justify-center p-6 py-12">
-        <Card className="w-full max-w-md bg-[#111827]/40 border-border/80 p-8 shadow-2xl flex flex-col gap-6">
+        <Card className="w-full max-w-md bg-surface/40 border-border/80 p-8 shadow-2xl flex flex-col gap-6">
           <div className="text-center">
             <h2 className="text-2xl font-black text-white font-display">Create Account</h2>
             <p className="text-gray-400 text-xs mt-1.5">Sign up to build your zero-code portfolio now</p>

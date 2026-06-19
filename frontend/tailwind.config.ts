@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 export default {
+  darkMode: 'class',
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}'
@@ -8,13 +9,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:   '#7C3AED',
-        secondary: '#06B6D4',
-        success:   '#10B981',
-        danger:    '#EF4444',
-        dark:      '#0A0A0A',
-        surface:   '#111827',
-        border:    '#1F2937',
+        primary:   'rgb(var(--color-primary))',
+        secondary: 'rgb(var(--color-secondary))',
+        success:   'rgb(var(--color-success))',
+        danger:    'rgb(var(--color-danger))',
+        dark:      'rgb(var(--color-bg))',
+        surface:   'rgb(var(--color-surface))',
+        border:    'rgb(var(--color-border))',
+        gray: {
+          50:  'rgb(var(--gray-50))',
+          100: 'rgb(var(--gray-100))',
+          200: 'rgb(var(--gray-200))',
+          300: 'rgb(var(--gray-300))',
+          400: 'rgb(var(--gray-400))',
+          500: 'rgb(var(--gray-500))',
+          600: 'rgb(var(--gray-600))',
+          750: 'rgb(var(--gray-650))',
+          700: 'rgb(var(--gray-700))',
+          800: 'rgb(var(--gray-800))',
+          900: 'rgb(var(--gray-900))',
+          950: 'rgb(var(--gray-950))',
+        }
       },
       fontFamily: {
         display: ['Clash Display', 'sans-serif'],

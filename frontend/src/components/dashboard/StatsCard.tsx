@@ -12,7 +12,7 @@ interface StatsCardProps {
 
 export const StatsCard: React.FC<StatsCardProps> = ({ title, value, icon: Icon, description, iconColorClass = 'text-primary' }) => {
   return (
-    <Card className="bg-[#111827]/30 border-border/40 p-5 flex items-center justify-between">
+    <Card className="bg-surface/30 border-border/40 p-5 flex items-center justify-between">
       <div className="flex flex-col gap-1">
         <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">{title}</span>
         <span className="text-3xl font-extrabold text-white mt-1">{value}</span>

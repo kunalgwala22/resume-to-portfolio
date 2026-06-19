@@ -63,7 +63,7 @@ export const LinearStyle: React.FC<{ data: PortfolioData }> = ({ data }) => {
         {experiences && experiences.length > 0 && (
           <section id="experience" className="flex flex-col gap-6 scroll-mt-20">
             <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">// Career Milestones</span>
-            <div className="flex flex-col divide-y divide-[#1f1f1f] border border-[#1f1f1f] rounded-lg overflow-hidden bg-[#0a0a0a]">
+            <div className="flex flex-col divide-y divide-[#1f1f1f] border border-[#1f1f1f] rounded-lg overflow-hidden bg-dark">
               {experiences.map((exp, i) => (
                 <div key={exp.id || i} className="p-5 flex flex-col gap-2 hover:bg-[#111111]/30 transition-colors">
                   <div className="flex justify-between items-baseline flex-wrap gap-2">
@@ -92,7 +92,7 @@ export const LinearStyle: React.FC<{ data: PortfolioData }> = ({ data }) => {
             <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">// Active Projects</span>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {projects.map((proj, i) => (
-                <div key={proj.id || i} className="border border-[#1f1f1f] bg-[#0a0a0a] rounded-lg p-5 flex flex-col justify-between hover:border-gray-700 transition-colors">
+                <div key={proj.id || i} className="border border-[#1f1f1f] bg-dark rounded-lg p-5 flex flex-col justify-between hover:border-gray-700 transition-colors">
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center justify-between">
                       <h3 className="text-white font-bold text-xs">{proj.name}</h3>
@@ -138,7 +138,7 @@ export const LinearStyle: React.FC<{ data: PortfolioData }> = ({ data }) => {
             <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">// Skill Matrix</span>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, i) => (
-                <span key={skill.id || i} className="bg-[#0a0a0a] border border-[#1f1f1f] text-gray-300 px-3 py-1 rounded text-[11px] font-semibold hover:border-gray-500 cursor-default">
+                <span key={skill.id || i} className="bg-dark border border-[#1f1f1f] text-gray-300 px-3 py-1 rounded text-[11px] font-semibold hover:border-gray-500 cursor-default">
                   {skill.name} <span className="text-gray-600 font-bold ml-1">{skill.level}</span>
                 </span>
               ))}
@@ -154,7 +154,7 @@ export const LinearStyle: React.FC<{ data: PortfolioData }> = ({ data }) => {
                 <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">// Education Logs</span>
                 <div className="flex flex-col gap-4">
                   {educations.map((ed, i) => (
-                    <div key={ed.id || i} className="flex gap-3 bg-[#0a0a0a] border border-[#1f1f1f] p-4 rounded-lg">
+                    <div key={ed.id || i} className="flex gap-3 bg-dark border border-[#1f1f1f] p-4 rounded-lg">
                       <GraduationCap className="text-gray-600 mt-0.5 flex-shrink-0" size={16} />
                       <div>
                         <h3 className="font-bold text-white">{ed.degree} {ed.field ? `[${ed.field}]` : ''}</h3>
@@ -172,7 +172,7 @@ export const LinearStyle: React.FC<{ data: PortfolioData }> = ({ data }) => {
                 <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">// Certifications</span>
                 <div className="flex flex-col gap-4">
                   {certifications.map((c, i) => (
-                    <div key={c.id || i} className="flex gap-3 bg-[#0a0a0a] border border-[#1f1f1f] p-4 rounded-lg">
+                    <div key={c.id || i} className="flex gap-3 bg-dark border border-[#1f1f1f] p-4 rounded-lg">
                       <Award className="text-gray-600 mt-0.5 flex-shrink-0" size={16} />
                       <div>
                         <h3 className="font-bold text-white">{c.name}</h3>

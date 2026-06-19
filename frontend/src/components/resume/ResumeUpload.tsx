@@ -76,7 +76,7 @@ export const ResumeUpload: React.FC<{ onSuccess?: (resume: any) => void }> = ({ 
         onDragOver={onDragOver}
         onDrop={onDrop}
         className={cn(
-          "border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-300 flex flex-col items-center gap-4 bg-[#111827]/20 border-border/80 hover:border-primary/50 hover:bg-primary/5",
+          "border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-300 flex flex-col items-center gap-4 bg-surface/20 border-border/80 hover:border-primary/50 hover:bg-primary/5",
           isUploading && "pointer-events-none opacity-50 border-gray-600 bg-transparent",
           file && "border-primary/40 bg-primary/5"
         )}

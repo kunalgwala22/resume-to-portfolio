@@ -39,7 +39,7 @@ export const FAQ: React.FC = () => {
         {faqs.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
-            <Card key={idx} className="bg-[#111827]/30 border-border/40 p-5 cursor-pointer flex flex-col gap-3" onClick={() => toggle(idx)}>
+            <Card key={idx} className="bg-surface/30 border-border/40 p-5 cursor-pointer flex flex-col gap-3" onClick={() => toggle(idx)}>
               <div className="flex justify-between items-center text-sm font-bold text-white">
                 <span>{faq.q}</span>
                 {isOpen ? <ChevronUp size={16} className="text-primary" /> : <ChevronDown size={16} />}

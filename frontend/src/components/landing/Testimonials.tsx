@@ -36,7 +36,7 @@ export const Testimonials: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {list.map((item, idx) => (
-          <Card key={idx} className="bg-[#111827]/30 border-border/40 p-6 flex flex-col justify-between gap-6 relative">
+          <Card key={idx} className="bg-surface/30 border-border/40 p-6 flex flex-col justify-between gap-6 relative">
             <Quote size={24} className="text-primary/20 absolute top-6 right-6" />
             <p className="text-gray-300 text-xs leading-relaxed italic">"{item.quote}"</p>
             <div className="flex items-center gap-3 mt-4">

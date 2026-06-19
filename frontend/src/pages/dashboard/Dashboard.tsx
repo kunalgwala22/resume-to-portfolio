@@ -86,7 +86,7 @@ export const Dashboard: React.FC = () => {
       {/* Grid Quick Settings */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Portfolio Status Card */}
-        <Card className="bg-[#111827]/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
+        <Card className="bg-surface/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
           <div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">Portfolio Status</span>
@@ -127,7 +127,7 @@ export const Dashboard: React.FC = () => {
         </Card>
 
         {/* Public Share Card */}
-        <Card className="bg-[#111827]/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
+        <Card className="bg-surface/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
           <div>
             <div className="flex items-center gap-2">
               <Globe size={16} className="text-primary" />
@@ -154,7 +154,7 @@ export const Dashboard: React.FC = () => {
         </Card>
 
         {/* Selected Design Card */}
-        <Card className="bg-[#111827]/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
+        <Card className="bg-surface/30 border-border/40 p-5 flex flex-col justify-between min-h-[160px]">
           <div>
             <div className="flex items-center gap-2">
               <Layers size={16} className="text-secondary" />
@@ -180,7 +180,7 @@ export const Dashboard: React.FC = () => {
       </div>
 
       {/* Resumes List Section */}
-      <Card className="bg-[#111827]/20 border-border/40 p-6 flex flex-col gap-6">
+      <Card className="bg-surface/20 border-border/40 p-6 flex flex-col gap-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/40 pb-4">
           <div className="flex flex-col gap-1">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">

@@ -21,7 +21,7 @@ export const Sidebar: React.FC = () => {
   return (
     <aside
       className={cn(
-        "border-r border-border/40 bg-[#0A0A0A] h-[calc(100vh-64px)] sticky top-16 flex flex-col justify-between transition-all duration-300 z-30",
+        "border-r border-border/40 bg-dark h-[calc(100vh-64px)] sticky top-16 flex flex-col justify-between transition-all duration-300 z-30",
         sidebarOpen ? "w-64" : "w-16"
       )}
     >
@@ -45,7 +45,7 @@ export const Sidebar: React.FC = () => {
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                   isActive
                     ? "bg-primary text-white"
-                    : "text-gray-400 hover:text-white hover:bg-surface"
+                    : "text-gray-400 hover:text-gray-100 hover:bg-surface"
                 )
               }
             >
@@ -63,7 +63,7 @@ export const Sidebar: React.FC = () => {
             <User size={16} />
           </div>
           <div className="flex flex-col truncate">
-            <span className="text-sm font-medium text-white truncate">{user.fullName || user.username}</span>
+            <span className="text-sm font-medium text-gray-100 truncate">{user.fullName || user.username}</span>
             <span className="text-xs text-gray-500 truncate">{user.email}</span>
           </div>
         </div>

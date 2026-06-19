@@ -56,7 +56,7 @@ export const TemplatesPage: React.FC = () => {
             return (
               <Card 
                 key={tmpl.id} 
-                className={`bg-[#111827]/20 flex flex-col justify-between border-2 overflow-hidden transition-all duration-300 group ${
+                className={`bg-surface/20 flex flex-col justify-between border-2 overflow-hidden transition-all duration-300 group ${
                   isActive 
                     ? 'border-primary shadow-[0_0_15px_rgba(124,58,237,0.15)] bg-primary/5' 
                     : 'border-border/40 hover:border-border/80'

@@ -207,7 +207,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
   return (
     <div className="flex flex-col gap-6">
       {/* Tab controls */}
-      <div className="bg-[#111827]/20 border border-border/40 rounded-xl p-2">
+      <div className="bg-surface/20 border border-border/40 rounded-xl p-2">
         <Tabs tabs={tabsList} activeTab={activeTab} onChange={setActiveTab} />
       </div>
 
@@ -222,7 +222,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {skills.map((skill, idx) => (
-                <Card key={idx} className="flex items-center gap-4 bg-[#111827]/30 border-border/40 p-4 relative group">
+                <Card key={idx} className="flex items-center gap-4 bg-surface/30 border-border/40 p-4 relative group">
                   <div className="flex-1 grid grid-cols-2 gap-3">
                     <Input 
                       placeholder="Skill name (e.g. React)" 
@@ -258,7 +258,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
 
             <div className="flex flex-col gap-6">
               {experiences.map((exp, idx) => (
-                <Card key={idx} className="bg-[#111827]/30 border-border/40 p-6 flex flex-col gap-4 relative">
+                <Card key={idx} className="bg-surface/30 border-border/40 p-6 flex flex-col gap-4 relative">
                   <div className="absolute top-4 right-4">
                     <Button variant="ghost" size="sm" className="text-danger hover:bg-danger/10 p-2 min-w-0" onClick={() => removeExperience(idx)}>
                       <Trash2 size={16} />
@@ -330,7 +330,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
 
             <div className="flex flex-col gap-6">
               {projects.map((proj, idx) => (
-                <Card key={idx} className="bg-[#111827]/30 border-border/40 p-6 flex flex-col gap-4 relative">
+                <Card key={idx} className="bg-surface/30 border-border/40 p-6 flex flex-col gap-4 relative">
                   <div className="absolute top-4 right-4">
                     <Button variant="ghost" size="sm" className="text-danger hover:bg-danger/10 p-2 min-w-0" onClick={() => removeProject(idx)}>
                       <Trash2 size={16} />
@@ -372,7 +372,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
 
               <div className="flex flex-col gap-4">
                 {educations.map((ed, idx) => (
-                  <Card key={idx} className="bg-[#111827]/30 border-border/40 p-5 flex flex-col gap-3 relative">
+                  <Card key={idx} className="bg-surface/30 border-border/40 p-5 flex flex-col gap-3 relative">
                     <div className="absolute top-4 right-4">
                       <Button variant="ghost" size="sm" className="text-danger hover:bg-danger/10 p-2 min-w-0" onClick={() => removeEducation(idx)}>
                         <Trash2 size={16} />
@@ -413,7 +413,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
 
               <div className="flex flex-col gap-4">
                 {certifications.map((c, idx) => (
-                  <Card key={idx} className="bg-[#111827]/30 border-border/40 p-5 flex flex-col gap-3 relative">
+                  <Card key={idx} className="bg-surface/30 border-border/40 p-5 flex flex-col gap-3 relative">
                     <div className="absolute top-4 right-4">
                       <Button variant="ghost" size="sm" className="text-danger hover:bg-danger/10 p-2 min-w-0" onClick={() => removeCert(idx)}>
                         <Trash2 size={16} />
@@ -447,7 +447,7 @@ export const ResumeEditor: React.FC<{ resumeId: string }> = ({ resumeId }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {socialLinks.map((sl, idx) => (
-                <Card key={idx} className="flex items-center gap-4 bg-[#111827]/30 border-border/40 p-4 relative">
+                <Card key={idx} className="flex items-center gap-4 bg-surface/30 border-border/40 p-4 relative">
                   <div className="flex-1 grid grid-cols-2 gap-3">
                     <Select 
                       options={[
