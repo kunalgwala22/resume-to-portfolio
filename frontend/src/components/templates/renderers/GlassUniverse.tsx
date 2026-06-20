@@ -1,6 +1,7 @@
 import React from 'react';
 import { PortfolioData } from '@portfolioverse/shared';
 import { Calendar, GraduationCap, Award, ExternalLink } from 'lucide-react';
+import { Card, Spotlight, SplineScene } from '@/components/ui';
 
 export const GlassUniverse: React.FC<{ data: PortfolioData }> = ({ data }) => {
   const { user, headline, summary, skills, experiences, educations, projects, certifications, socialLinks, themeColor } = data;
@@ -35,21 +36,32 @@ export const GlassUniverse: React.FC<{ data: PortfolioData }> = ({ data }) => {
 
       <div className="max-w-4xl mx-auto flex flex-col gap-12 py-16 px-6 relative z-10">
         
-        {/* Header Glass Card */}
-        <header className="glass-panel p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
-          {user.avatarUrl && (
-            <img 
-              src={user.avatarUrl} 
-              alt={user.fullName || ''} 
-              className="h-28 w-28 md:h-32 md:w-32 rounded-2xl object-cover border border-white/10 shadow-2xl flex-shrink-0" 
-            />
-          )}
-          <div className="text-center md:text-left flex-grow">
-            <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight font-display">{user.fullName || 'Candidate Profile'}</h1>
-            <p className="text-lg md:text-xl font-bold mt-2" style={{ color: themeColor }}>{headline || 'Professional Headline'}</p>
-            {user.bio && <p className="text-[#9ca3af] text-sm mt-3 max-w-lg leading-relaxed">{user.bio}</p>}
+        {/* Header 3D Spline Scene & Spotlight Card */}
+        <Card className="w-full bg-black/60 border border-white/10 relative overflow-hidden flex flex-col md:flex-row gap-8 shadow-2xl p-8 md:p-10">
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+          <div className="flex flex-col md:flex-row w-full h-full items-center justify-between gap-8 relative z-10">
+            <div className="flex-grow flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+              {user.avatarUrl && (
+                <img 
+                  src={user.avatarUrl} 
+                  alt={user.fullName || ''} 
+                  className="h-28 w-28 md:h-32 md:w-32 rounded-2xl object-cover border border-white/10 shadow-2xl flex-shrink-0 animate-fadeIn" 
+                />
+              )}
+              <div className="flex-grow text-center sm:text-left">
+                <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-display">{user.fullName || 'Candidate Profile'}</h1>
+                <p className="text-base md:text-lg font-bold mt-2" style={{ color: themeColor }}>{headline || 'Professional Headline'}</p>
+                {user.bio && <p className="text-[#9ca3af] text-xs mt-3 max-w-md leading-relaxed">{user.bio}</p>}
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 h-64 md:h-72 relative flex-shrink-0">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+                className="w-full h-full" 
+              />
+            </div>
           </div>
-        </header>
+        </Card>
 
         {/* Summary Card */}
         {summary && (

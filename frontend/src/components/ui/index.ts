@@ -8,3 +8,7 @@ export * from './Badge';
 export * from './Tabs';
 export * from './Avatar';
 export * from './Skeleton';
+export * from './splite';
+export * from './spotlight';
+export * from './spotlight-hover';
+export * from './demo';

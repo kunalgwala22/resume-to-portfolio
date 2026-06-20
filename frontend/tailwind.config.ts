@@ -52,13 +52,24 @@ export default {
         slideUp: {
           from: { transform: 'translateY(12px)', opacity: '0' },
           to: { transform: 'translateY(0)', opacity: '1' }
-        }
+        },
+        spotlight: {
+          "0%": {
+            opacity: "0",
+            transform: "matrix(-0.822377, -0.568943, -0.568943, 0.822377, 3631.88, 2291.09) scale(0.87)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "matrix(-0.822377, -0.568943, -0.568943, 0.822377, 3631.88, 2291.09) scale(1)",
+          },
+        },
       },
       animation: {
         aurora:     'aurora 12s ease-in-out infinite alternate',
         shimmer:    'shimmer 2.5s infinite',
         fadeIn:     'fadeIn 0.3s ease-out',
         slideUp:    'slideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+        spotlight:  'spotlight 2s ease .75s 1 normal forwards',
       },
     },
   },
